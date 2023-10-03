@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unique page title - My Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+  <div class="window">
+    <div class="slr" onclick="clk()">
+      <img src="img/strelka.png" class="strelka">
+    </div>
+    <div class="dfga">
+      {% for i in backs %}
+        <div class="panel1">
+          <img src="{{ i.cover.url }}" class="tov" >
+          <h1>{{ i.name }}</h1>
+          <p><b>{{ i.info }}</b></p>
+          <h2>{{ i.price }}</h2>
+        </div>
+      {% endfor %}
+    </div>
+    
+
+    <a href="admin/">Настройка</a>  
+  </div>
+  <script>
+    let elem = document.querySelector('.dfga');
+    function clk() {
+      elem.classList.toggle('r');
+    }
+    
+  </script>
+<body>
+</body>
+</html>
