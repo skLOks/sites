@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="{% static "css/style.css"%}">
+</head>
+<body>
+	<div class="WindCreat">
+		<form action="create/" method="POST">
+			{% csrf_token %}
+			<p>
+				<label>name: </label>
+				<input type="text" name="name"/><br/>
+			</p>
+			<p>
+				<label>info: </label>
+				<input type="text" name="info"/><br/>
+			</p>
+			<p>
+				<label>price: </label>
+				<input type="text" name="price"/><br/>
+			</p>
+			<input type="submit" value="Sohranit"/>
+			<a href="red/">Redaktirovat ili udalit</a>
+		</form>
+		<div class="but"></div>
+	</div>
+	
+	<div class="conteiner">
+		<img src="{% static "img/logo-black.png"%}">
+		
+	</div>
+	<p>Колхозно, но думаю пойдёт</p>
+	{% for t in data %}
+	<div class="tablecont">
+		<img src="{%static "img/loading.gif"%}">
+		<h1 class="name">{{t.name}}</h1>
+		<p class="infotov">{{t.infotov}}</p>
+		<p class="price">{{t.price}}</p>
+	</div>
+	{% endfor %}
+	
+</body>
+</html>
